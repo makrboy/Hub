@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL Link Display</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00; /* Dark green */
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    a {
+      color: #00ff00; /* Dark green */
+      text-decoration: none;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function addLink() {
+      var url = prompt("Enter the URL:");
+      var link = document.createElement("a");
+      link.href = url;
+      link.innerHTML = url;
+      document.body.appendChild(link);
+    }
+
+    // Add the links
+    var links = [
+      "https://tic-tac-toe-jade-three.vercel.app/",
+      "https://21-nu.vercel.app/",
+      "https://font-translator.vercel.app/"
+    ];
+    
+    links.forEach(function(url) {
+      var link = document.createElement("a");
+      link.href = url;
+      link.innerHTML = url;
+      document.body.appendChild(link);
+    });
+  </script>
+  <button onclick="addLink()">Add URL</button>
+</body>
+</html>
