@@ -8,10 +8,10 @@
       color: #00ff00; /* Dark green */
       font-family: Arial, sans-serif;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       height: 100vh;
+      justify-content: center;
     }
     
     a {
@@ -23,28 +23,24 @@
 </head>
 <body>
   <script>
-    function addLink() {
-      var url = prompt("Enter the URL:");
-      var link = document.createElement("a");
-      link.href = url;
-      link.innerHTML = url;
-      document.body.appendChild(link);
-    }
-
-    // Add the links
     var links = [
-      "https://tic-tac-toe-jade-three.vercel.app/",
-      "https://21-nu.vercel.app/",
-      "https://font-translator.vercel.app/"
+      { url: "https://tic-tac-toe-jade-three.vercel.app/", name: "Tic-tac-toe" },
+      { url: "https://21-nu.vercel.app/", name: "21 calculator" },
+      { url: "https://font-translator.vercel.app/", name: "Font translator" }
     ];
-    
-    links.forEach(function(url) {
-      var link = document.createElement("a");
-      link.href = url;
-      link.innerHTML = url;
-      document.body.appendChild(link);
-    });
+
+    window.onload = function() {
+      var linkContainer = document.createElement("div");
+      
+      links.forEach(function(link) {
+        var a = document.createElement("a");
+        a.href = link.url;
+        a.innerHTML = link.name;
+        linkContainer.appendChild(a);
+      });
+      
+      document.body.appendChild(linkContainer);
+    };
   </script>
-  <button onclick="addLink()">Add URL</button>
 </body>
 </html>
