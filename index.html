@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>URL Link Display</title>
   <style>
     body {
-      background-color: black;
-      color: #00ff00; /* Dark green */
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      margin: 0;
-      padding: 10px;
-      overflow: hidden;
+      background-color: #000000;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
     }
-
-    .link-box {
-      background-color: #003300; /* Dark green */
-      padding: 20px;
-      margin: 20px;
-      width: 80%;
-      max-width: 600px;
-      text-align: center;
-      border-radius: 10px;
+    
+    .button {
+      background-color: #006400;
+      color: #ffffff;
+      padding: 10px 20px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
-
-    a {
-      color: #00ff00; /* Dark green */
-      text-decoration: none;
+    
+    .button:hover {
+      background-color: #008000;
     }
   </style>
 </head>
@@ -40,29 +34,24 @@
       { url: "https://21-nu.vercel.app/", name: "21 calculator" },
       { url: "https://font-translator.vercel.app/", name: "Font translator" }
     ];
-
-    window.onload = function() {
-      var linkContainer = document.createElement("div");
-      linkContainer.style.height = "100%";
-      linkContainer.style.display = "flex";
-      linkContainer.style.flexDirection = "column";
-      linkContainer.style.justifyContent = "center";
-      linkContainer.style.alignItems = "center";
+    
+    function createButtons() {
+      var container = document.createElement("div");
       
       links.forEach(function(link) {
-        var linkBox = document.createElement("div");
-        linkBox.classList.add("link-box");
-        
-        var a = document.createElement("a");
-        a.href = link.url;
-        a.innerHTML = link.name;
-        
-        linkBox.appendChild(a);
-        linkContainer.appendChild(linkBox);
+        var button = document.createElement("button");
+        button.textContent = link.name;
+        button.className = "button";
+        button.addEventListener("click", function() {
+          window.location.href = link.url;
+        });
+        container.appendChild(button);
       });
       
-      document.body.appendChild(linkContainer);
-    };
+      document.body.appendChild(container);
+    }
+    
+    createButtons();
   </script>
 </body>
 </html>
