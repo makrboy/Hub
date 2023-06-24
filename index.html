@@ -7,23 +7,24 @@
             padding: 0;
             background-color: #000;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: stretch;
             height: 100vh;
             color: #FFF;
         }
         .link-box {
             background-color: #008000;
             margin: 10px;
-            padding: 20px;
+            padding: 50px;
             text-align: center;
-            flex: 1;
+            flex-grow: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 10px;
             text-decoration: none;
-            color: #FFF;
+            color: #90ee90;
             font-size: 20px;
             transition: background-color 0.3s ease;
         }
@@ -33,8 +34,35 @@
     </style>
 </head>
 <body>
-    <a href="https://tic-tac-toe-jade-three.vercel.app/" class="link-box">Tic tac toe</a>
-    <a href="https://21-nu.vercel.app/" class="link-box">21 calculator</a>
-    <a href="https://font-translator.vercel.app/" class="link-box">Font translator</a>
+    <div id="link-container"></div>
+    
+    <script>
+        var links = [
+            {
+                url: "https://tic-tac-toe-jade-three.vercel.app/",
+                name: "Tic tac toe"
+            },
+            {
+                url: "https://21-nu.vercel.app/",
+                name: "21 calculator"
+            },
+            {
+                url: "https://font-translator.vercel.app/",
+                name: "Font translator"
+            }
+            // You can add more links here in the same format
+        ];
+        
+        var linkContainer = document.getElementById('link-container');
+        
+        links.forEach(function(link) {
+            var a = document.createElement('a');
+            a.href = link.url;
+            a.className = 'link-box';
+            a.textContent = link.name;
+            
+            linkContainer.appendChild(a);
+        });
+    </script>
 </body>
 </html>
